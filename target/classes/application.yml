@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: order-service
+    version: 1.0.0
+  datasource:
+    url: jdbc:mysql://localhost:3306/order_database?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  #  http:
+  #    converters:
+  #      preferred-json-mapper: gson
+
+  gson:
+    date-format: "yyyy-MM-dd'T'HH:mm:ssZ"
+    disable-html-escaping: true
+
+server:
+  servlet:
+    context-path: /order-service
+
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+info:
+  app: order-service
+  version: 1.0.0
+  description: this is order service
